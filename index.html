@@ -1,220 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Phantom studioZ Salon Academy</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #fefdfc;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-
-        header {
-            background-color: #ff6f61;
-            padding: 15px 25px;
-            color: white;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 20px;
-        }
-
-        nav a {
-            margin-left: 15px;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .container {
-            padding: 20px;
-            max-width: 900px;
-            margin: auto;
-        }
-
-        h2 {
-            color: #222;
-        }
-
-        .highlight {
-            font-weight: bold;
-            text-decoration: underline;
-            text-underline-offset: 6px;
-            text-decoration-color: #ffa726;
-        }
-
-        .button {
-            background-color: #ff6f61;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 10px;
-            transition: background 0.3s;
-        }
-
-        .button:hover {
-            background-color: #ff3b2e;
-        }
-
-        .course-box {
-            background: #f3f3f3;
-            border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .course-title {
-            font-weight: bold;
-        }
-
-        .course-highlight {
-            color: #ff6f61;
-        }
-
-        .img-box {
-            margin-top: 15px;
-            text-align: center;
-        }
-
-        .img-box img {
-            width: 100%;
-            max-width: 300px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        footer {
-            background-color: #f0f0f0;
-            padding: 15px;
-            text-align: center;
-            font-size: 14px;
-            color: #777;
-            margin-top: 40px;
-        }
-
-        @media (max-width: 600px) {
-            nav a {
-                display: block;
-                margin: 10px 0;
-            }
-        }
-    </style>
-</head>
-<body>
-
-<header>
-        <nav>
-        <a href="index.html">Home</a>
-        <a href="Courses.html">Courses</a>
-        <a href="retail.html">Retail</a>
-        <a href="contact.html">Contact</a>
-    </nav><!DOCTYPE html>
-<html lang="en">
-
-</header>
-
-<div class="container"><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Phantom studioZ Retail</title>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function () {
+      emailjs.init("R8YQ6uFuEg24lKXoj");
+    })();
+  </script>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f9f9f9;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
       margin: 0;
       padding: 0;
       color: #333;
     }
-
     header {
-      background-color: #2c2c2c;
+      background: #2c2c2c;
       color: white;
-      padding: 20px;
       text-align: center;
+      padding: 20px;
     }
-
-    h2.category {
-      background-color: #ff6f61;
-      color: white;
-      padding: 10px 20px;
-      margin-top: 40px;
-      margin-bottom: 20px;
-    }
-
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
-      padding: 0 20px 40px;
-      max-width: 1200px;
-      margin: auto;
+      padding: 20px;
     }
-
     .product-card {
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      padding: 15px;
     }
-
     .product-card img {
       width: 100%;
-      height: 200px;
+      height: 150px;
       object-fit: cover;
+      border-radius: 5px;
     }
-
-    .product-info {
-      padding: 15px;
-      flex: 1;
+    .product-card h3 {
+      margin: 10px 0 5px;
     }
-
-    .product-info h3 {
-      margin: 0;
-      font-size: 18px;
-    }
-
-    .product-info p.description {
-      font-size: 14px;
-      color: #666;
-      margin: 10px 0;
-    }
-
-    .product-meta {
-      font-size: 14px;
-      margin-top: 10px;
-      color: #444;
-    }
-
-    .buy-button {
-      display: block;
-      background-color: #2c2c2c;
+    .product-card button {
+      background: #2c2c2c;
       color: white;
-      text-align: center;
-      padding: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
     }
-
-    .buy-button:hover {
-      background-color: #444;
+    #cart {
+      background: #eee;
+      padding: 20px;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+    }
+    .cart-item button {
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 4px 8px;
+      cursor: pointer;
+    }
+    form input, form select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    form input[type="submit"] {
+      background: #2c2c2c;
+      color: white;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -222,204 +85,301 @@
 
 <header>
   <h1>Phantom studioZ Retail</h1>
-  <p>Premium Salon Products – Professional Quality</p>
+  <p>Explore and order our premium beauty products and courses</p>
 </header>
 
-<h2 class="category">Short courses</h2>
-<div class="product-grid">
-    
-  <div class="product-card">
-    <img src="images/product1.jpeg" alt="Hair and braiding course">
-    <div class="product-info">
-      <h3>Hair and braiding course</h3>
-      <p class="description">Hair and braiding tuition, virtual classes and certificate.</p>
-      <div class="product-meta">Price: R850.00 | Unit: 1</div>
-    </div>
-      <form onsubmit="return redirectToYoco(this)" style="padding: 10px;">
-  <label for="name">Your Name:</label><br>
-  <input type="text" name="name" required style="width: 100%; margin-bottom: 8px;"><br>
+<h2 style="padding: 20px; margin: 0;">Courses</h2>
+<div class="product-grid" id="course-list"></div>
 
-  <label for="address">Delivery Address:</label><br>
-  <textarea name="address" required style="width: 100%; margin-bottom: 8px;"></textarea><br>
-
-  <button type="submit" class="buy-button">Submit Address & Buy</button>
-</form>
+<h2 style="padding: 20px; margin: 0;">Products</h2>
+<div class="product-grid" id="product-list"></div>
 
 <script>
-  function redirectToYoco(form) {
-    const name = encodeURIComponent(form.name.value);
-    const address = encodeURIComponent(form.address.value);
+  const products = [
+    { name: "Hair Braiding Styling Course", price: 850, image: "images/shampoo.jpg" },
+    { name: "Make Up Artistry Course", price: 1200, image: "images/nailkit.jpg" },
+    { name: "Facial Kit", price: 450, image: "images/facialkit.jpg" },
+    { name: "Skin Glow Serum", price: 350, image: "images/serum.jpg" },
+    { name: "Manicure Set", price: 299, image: "images/manicure.jpg" },
+    { name: "Pedicure Kit", price: 320, image: "images/pedicure.jpg" },
+    { name: "Lash Lift Kit", price: 500, image: "images/lashlift.jpg" },
+    { name: "Acrylic Nail Kit", price: 650, image: "images/acrylic.jpg" },
+    { name: "Hair Relaxer", price: 250, image: "images/relaxer.jpg" },
+    { name: "Wig Making Course", price: 900, image: "images/wig.jpg" },
+    { name: "Scalp Treatment", price: 300, image: "images/scalp.jpg" },
+    { name: "Tint Developer", price: 180, image: "images/tint.jpg" },
+    { name: "Makeup Brushes", price: 220, image: "images/brushes.jpg" },
+    { name: "Hair Curler", price: 400, image: "images/curler.jpg" },
+    { name: "Wax Heater Kit", price: 520, image: "images/wax.jpg" },
+    { name: "BB Glow Kit", price: 800, image: "images/bbglow.jpg" },
+    { name: "Eyelash Extensions", price: 350, image: "images/eyelash.jpg" },
+    { name: "Microblading Tools", price: 770, image: "images/microblading.jpg" },
+    { name: "Nail Polish Set", price: 260, image: "images/nailpolish.jpg" },
+    { name: "Massage Oil", price: 150, image: "images/massage.jpg" },
+    { name: "Skin Cleanser", price: 280, image: "images/cleanser.jpg" }
+  ];
 
-    // Optional: Log or alert the details for testing
-    console.log("Name:", name);
-    console.log("Address:", address);
+  const courseContainer = document.getElementById("course-list");
+  const productContainer = document.getElementById("product-list");
 
-    // Redirect to Yoco link (replace with your real link)
-    const yocoLink = "https://pay.yoco.com/r/7vaL1p";
-
-    // Optional: You could add name/address as URL params (if tracking)
-    window.location.href = yocoLink;
-
-    return false; // Prevent default form submission
-  }
+  products.forEach(p => {
+    const card = `
+      <div class="product-card">
+        <img src="${p.image}" alt="${p.name}" />
+        <h3>${p.name}</h3>
+        <p>R${p.price}</p>
+        <button onclick="addToCart('${p.name}', ${p.price})">Add to Cart</button>
+      </div>
+    `;
+    if (p.name.toLowerCase().includes("course")) {
+      courseContainer.innerHTML += card;
+    } else {
+      productContainer.innerHTML += card;
+    }
+  });
 </script>
+      `);
+    });
+  </script>
+</div>
 
-  </div>
+<div id="cart">
+  <h2>Your Cart</h2>
+  <ul id="cart-items"></ul>
 
-  <div class="product-card">
-    <img src="images/product2.jpeg" alt="Nail technology Course">
-    <div class="product-info">
-      <h3>Nail technology course</h3>
-      <p class="description">Nail technology tuition, virtual training, Nail kit and certificate.</p>
-      <div class="product-meta">Price: R1500.00 | Unit:1</div>
-    </div>
-    <form onsubmit="return redirectToYoco(this)" style="padding: 10px;">
-  <label for="name">Your Name:</label><br>
-  <input type="text" name="name" required style="width: 100%; margin-bottom: 8px;"><br>
+  <label>Delivery Option</label>
+  <select id="delivery" onchange="updateCart()">
+    <option value="0|Pick-up (Free)">Pick-up (Free)</option>
+    <option value="50|Standard Delivery">Standard Delivery - R50</option>
+    <option value="100|Express Delivery">Express Delivery - R100</option>
+  </select>
 
-  <label for="address">Delivery Address:</label><br>
-  <textarea name="address" required style="width: 100%; margin-bottom: 8px;"></textarea><br>
+  <p><strong>Total:</strong> R<span id="total">0</span></p>
 
-  <button type="submit" class="buy-button">Submit Address & Buy</button>
-</form>
+  <form id="order-form">
+    <input type="text" name="name" placeholder="Full Name" required />
+    <input type="text" name="email" placeholder="Your Email" required />
+    <input type="text" name="address" placeholder="Street Address" required />
+    <input type="text" name="city" placeholder="City" required />
+    <input type="text" name="zip" placeholder="Postal Code" required />
+
+    <input type="hidden" name="cart" id="cart-data" />
+    <input type="hidden" name="total" id="cart-total" />
+    <input type="hidden" name="delivery_details" id="delivery-details" />
+
+    <input type="submit" value="Submit Order" />
+    <input type="button" value="Reset Cart" onclick="resetCart()" />
+  </form>
+</div>
 
 <script>
-  function redirectToYoco(form) {
-    const name = encodeURIComponent(form.name.value);
-    const address = encodeURIComponent(form.address.value);
+  let cart = [];
 
-    // Optional: Log or alert the details for testing
-    console.log("Name:", name);
-    console.log("Address:", address);
-
-    // Redirect to Yoco link (replace with your real link)
-    const yocoLink = "https://pay.yoco.com/r/mz80PM";
-
-    // Optional: You could add name/address as URL params (if tracking)
-    window.location.href = yocoLink;
-
-    return false; // Prevent default form submission
+  function addToCart(product, price) {
+    cart.push({ product, price });
+    updateCart();
   }
-</script>
 
+  function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCart();
+  }
+
+  function resetCart() {
+    cart = [];
+    document.getElementById("delivery").value = "0|Pick-up (Free)";
+    updateCart();
+  }
+
+  function updateCart() {
+    const cartList = document.getElementById("cart-items");
+    const cartDataInput = document.getElementById("cart-data");
+    const cartTotalInput = document.getElementById("cart-total");
+    const deliveryInput = document.getElementById("delivery-details");
+
+    const [fee, label] = document.getElementById("delivery").value.split("|");
+    const deliveryFee = parseFloat(fee);
+
+    cartList.innerHTML = "";
+    let total = 0;
+    let summary = [];
+
+    cart.forEach((item, index) => {
+      total += item.price;
+      summary.push(`${item.product} - R${item.price}`);
+      const li = document.createElement("li");
+      li.className = "cart-item";
+      li.innerHTML = `${item.product} - R${item.price} <button onclick="removeFromCart(${index})">X</button>`;
+      cartList.appendChild(li);
+    });
+
+    total += deliveryFee;
+    document.getElementById("total").textContent = total;
+    cartDataInput.value = summary.join(", ");
+    cartTotalInput.value = total;
+    deliveryInput.value = `${label} - R${deliveryFee}`;
+  }
+
+  document.getElementById("order-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    emailjs.sendForm("service_ps73eee", "template_xkluzkn", this).then(
+      function () {
+        alert("Order sent! Confirmation email will be sent shortly.");
+        resetCart();
+        document.getElementById("order-form").reset();
+      },
+      function (error) {
+        alert("Failed to send order. Try again.");
+        console.error("EmailJS error:", error);
+      }
+    );
+  });
+
+  updateCart();
+</script>
+<!-- ✅ Chatbot Widget for Phantom studioZ -->
+<style>
+  #chatWidget {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    background: white;
+    border: 2px solid #444;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    display: none;
+    flex-direction: column;
+    z-index: 9999;
+  }
+
+  #chatHeader {
+    background: #000;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  #chatMessages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  #chatInput {
+    display: flex;
+    border-top: 1px solid #ccc;
+  }
+
+  #chatInput input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    outline: none;
+  }
+
+  #chatInput button {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+
+  .chat-msg {
+    margin: 5px 0;
+  }
+
+  .chat-user {
+    color: #1e90ff;
+  }
+
+  .chat-bot {
+    color: #28a745;
+  }
+
+  #openChatBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: #000;
+    color: white;
+    border-radius: 50%;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 9999;
+  }
+</style>
+
+<!-- Chat HTML -->
+<div id="chatWidget">
+  <div id="chatHeader" onclick="toggleChat()">Phantom Bot</div>
+  <div id="chatMessages"></div>
+  <div id="chatInput">
+    <input type="text" id="chatUserInput" placeholder="Ask about products or courses...">
+    <button onclick="sendChatMessage()">➤</button>
   </div>
 </div>
-    <div class="product-card">
-    <img src="images/product2.jpeg" alt="Make up artistry Course">
-    <div class="product-info">
-      <h3>Make up course</h3>
-      <p class="description">Make up tuition, virtual training, Make up kit and certificate.</p>
-      <div class="product-meta">Price: R1200.00 | Unit:1</div>
-    </div>
-    <form onsubmit="return redirectToYoco(this)" style="padding: 10px;">
-  <label for="name">Your Name:</label><br>
-  <input type="text" name="name" required style="width: 100%; margin-bottom: 8px;"><br>
 
-  <label for="address">Delivery Address:</label><br>
-  <textarea name="address" required style="width: 100%; margin-bottom: 8px;"></textarea><br>
-
-  <button type="submit" class="buy-button">Submit Address & Buy</button>
-</form>
+<button id="openChatBtn" onclick="toggleChat()">💬</button>
 
 <script>
-  function redirectToYoco(form) {
-    const name = encodeURIComponent(form.name.value);
-    const address = encodeURIComponent(form.address.value);
+  function toggleChat() {
+    const widget = document.getElementById("chatWidget");
+    if (widget.style.display === "none" || widget.style.display === "") {
+      widget.style.display = "flex";
+    } else {
+      widget.style.display = "none";
+    }
+  }
 
-    // Optional: Log or alert the details for testing
-    console.log("Name:", name);
-    console.log("Address:", address);
+  function sendChatMessage() {
+    const input = document.getElementById("chatUserInput");
+    const userMessage = input.value.trim();
+    if (userMessage === "") return;
 
-    // Redirect to Yoco link (replace with your real link)
-    const yocoLink = "https://pay.yoco.com/r/mRVOMq";
+    addMessage("You", userMessage, "chat-user");
+    input.value = "";
 
-    // Optional: You could add name/address as URL params (if tracking)
-    window.location.href = yocoLink;
+    const botReply = getBotReply(userMessage);
+    setTimeout(() => addMessage("Bot", botReply, "chat-bot"), 400);
+  }
 
-    return false; // Prevent default form submission
+  function addMessage(sender, text, className) {
+    const chatBox = document.getElementById("chatMessages");
+    const msg = document.createElement("div");
+    msg.className = `chat-msg ${className}`;
+    msg.innerHTML = `<strong>${sender}:</strong> ${text}`;
+    chatBox.appendChild(msg);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  function getBotReply(msg) {
+    const input = msg.toLowerCase();
+    if (input.includes("course")) return "We offer makeup, hair, and skincare courses. Check the top of this page.";
+    if (input.includes("product") || input.includes("retail")) return "You can order all products listed above. Tap 'Add to Cart' to begin.";
+    if (input.includes("price")) return "Each product shows a price. Let me know which item you're asking about!";
+    if (input.includes("order") || input.includes("buy")) return "Use the cart below the products to complete your order.";
+    if (input.includes("contact")) return "Contact us via email at thoentity@gmail.com.com or use our contact form.";
+    if (input.includes("pickup") || input.includes("delivery")) return "You can choose between 'Pick-up (Free)' or enter your delivery address.";
+    return "I'm not sure how to respond. Try asking about our products, courses, prices, or how to order.";
   }
 </script>
+<!-- ✅ End Chatbot Widget -->
 
-  </div>
-</div>  
+</body>
 
-<h2 class="category">Beauty products</h2>
-<div class="product-grid">
-  <div class="product-card">
-    <img src="images/product3.jpeg" alt="Nail artistry kit">
-    <div class="product-info">
-      <h3>Nail artistry kit</h3>
-      <p class="description">Nail artistry kit for beginners.</
-    <div class="product-meta">Price: R380.00 | Unit: 1</div>
- </div>
-    <form onsubmit="return redirectToYoco(this)" style="padding: 10px;">
-  <label for="name">Your Name:</label><br>
-  <input type="text" name="name" required style="width: 100%; margin-bottom: 8px;"><br>
 
-  <label for="address">Delivery Address:</label><br>
-  <textarea name="address" required style="width: 100%; margin-bottom: 8px;"></textarea><br>
 
-  <button type="submit" class="buy-button">Submit Address & Buy</button>
-</form>
+</html>
 
-<script>
-  function redirectToYoco(form) {
-    const name = encodeURIComponent(form.name.value);
-    const address = encodeURIComponent(form.address.value);
-
-    // Optional: Log or alert the details for testing
-    console.log("Name:", name);
-    console.log("Address:", address);
-
-    // Redirect to Yoco link (replace with your real link)
-    const yocoLink = "https://pay.yoco.com/r/meDgPp";
-
-    // Optional: You could add name/address as URL params (if tracking)
-    window.location.href = yocoLink;
-
-    return false; // Prevent default form submission
-  }
-</script>
-
-</div>
-</div>
-<div class="product-card">
-    <img src="images/product3.jpeg" alt="Bob Wig">
-    <div class="product-info">
-      <h3>Bob Wig</h3>
-      <p class="description">Heat resistant Black to Red tone wig.</
-        <div class="product-meta">Price: R85.00 | Unit: 1</div>
- </div>
-    <form onsubmit="return redirectToYoco(this)" style="padding: 10px;">
-  <label for="name">Your Name:</label><br>
-  <input type="text" name="name" required style="width: 100%; margin-bottom: 8px;"><br>
-
-  <label for="address">Delivery Address:</label><br>
-  <textarea name="address" required style="width: 100%; margin-bottom: 8px;"></textarea><br>
-
-  <button type="submit" class="buy-button">Submit Address & Buy</button>
-</form>
-
-<script>
-  function redirectToYoco(form) {
-    const name = encodeURIComponent(form.name.value);
-    const address = encodeURIComponent(form.address.value);
-
-    // Optional: Log or alert the details for testing
-    console.log("Name:", name);
-    console.log("Address:", address);
-
-    // Redirect to Yoco link (replace with your real link)
-    const yocoLink = "https://pay.yoco.com/r/7vaL1p";
-
-    // Optional: You could add name/address as URL params (if tracking)
-    window.location.href = yocoLink;
-
-    return false; // Prevent default form submission
-  }
-</script>
-</div>
-  </div>
 
 
 
