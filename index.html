@@ -11,17 +11,36 @@
   </script>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f1f1f1;
       margin: 0;
       padding: 0;
       color: #333;
     }
     header {
-      background: #2c2c2c;
-      color: white;
+      background: linear-gradient(135deg, #c0c0c0, #a9a9a9);
+      color: #8b0000;
       text-align: center;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.8em;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    header p {
+      margin: 10px 0 0;
+      font-size: 1.1em;
+      color: #222;
+    }
+    h2 {
+      color: #8b0000;
       padding: 20px;
+      margin: 0;
+      border-bottom: 2px solid #c0c0c0;
+      background: #f8f8f8;
     }
     .product-grid {
       display: grid;
@@ -31,53 +50,80 @@
     }
     .product-card {
       background: white;
+      border: 1px solid #ccc;
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       text-align: center;
       padding: 15px;
+      transition: transform 0.2s;
+    }
+    .product-card:hover {
+      transform: scale(1.02);
     }
     .product-card img {
       width: 100%;
-      height: 150px;
+      height: 160px;
       object-fit: cover;
-      border-radius: 5px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
     }
     .product-card h3 {
       margin: 10px 0 5px;
+      color: #8b0000;
     }
     .product-card button {
-      background: #2c2c2c;
+      background: #8b0000;
       color: white;
       border: none;
       padding: 10px 15px;
-      border-radius: 5px;
+      border-radius: 6px;
       cursor: pointer;
+      margin-top: 10px;
+    }
+    .product-card button:hover {
+      background: #a30000;
     }
     #cart {
-      background: #eee;
-      padding: 20px;
+      background: #fff;
+      border-top: 3px solid #8b0000;
+      padding: 30px;
     }
     .cart-item {
       display: flex;
       justify-content: space-between;
+      padding: 5px 0;
+      border-bottom: 1px solid #ccc;
     }
     .cart-item button {
-      background: red;
+      background: #b22222;
       color: white;
       border: none;
       border-radius: 4px;
       padding: 4px 8px;
       cursor: pointer;
     }
+    form {
+      margin-top: 20px;
+    }
     form input, form select {
       width: 100%;
-      padding: 10px;
-      margin-top: 10px;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #aaa;
+      border-radius: 6px;
+      font-size: 16px;
     }
-    form input[type="submit"] {
-      background: #2c2c2c;
+    form input[type="submit"], form input[type="button"] {
+      background: #8b0000;
       color: white;
       cursor: pointer;
+    }
+    form input[type="submit"]:hover, form input[type="button"]:hover {
+      background: #a30000;
+    }
+    #total {
+      color: #8b0000;
+      font-size: 1.2em;
     }
   </style>
 </head>
@@ -85,14 +131,43 @@
 
 <header>
   <h1>Phantom studioZ Retail</h1>
-  <p>Explore and order our premium beauty products and courses</p>
+  <p>Luxury Beauty Meets Professional Courses</p>
 </header>
 
-<h2 style="padding: 20px; margin: 0;">Courses</h2>
+<h2>Courses</h2>
 <div class="product-grid" id="course-list"></div>
 
-<h2 style="padding: 20px; margin: 0;">Products</h2>
+<h2>Products</h2>
 <div class="product-grid" id="product-list"></div>
+
+<div id="cart">
+  <h2>Your Cart</h2>
+  <ul id="cart-items"></ul>
+
+  <label>Delivery Option</label>
+  <select id="delivery" onchange="updateCart()">
+    <option value="0|Pick-up (Free)">Pick-up (Free)</option>
+    <option value="50|Standard Delivery">Standard Delivery - R50</option>
+    <option value="100|Express Delivery">Express Delivery - R100</option>
+  </select>
+
+  <p><strong>Total:</strong> R<span id="total">0</span></p>
+
+  <form id="order-form">
+    <input type="text" name="name" placeholder="Full Name" required />
+    <input type="text" name="email" placeholder="Your Email" required />
+    <input type="text" name="address" placeholder="Street Address" required />
+    <input type="text" name="city" placeholder="City" required />
+    <input type="text" name="zip" placeholder="Postal Code" required />
+
+    <input type="hidden" name="cart" id="cart-data" />
+    <input type="hidden" name="total" id="cart-total" />
+    <input type="hidden" name="delivery_details" id="delivery-details" />
+
+    <input type="submit" value="Submit Order" />
+    <input type="button" value="Reset Cart" onclick="resetCart()" />
+  </form>
+</div>
 
 <script>
   const products = [
@@ -137,42 +212,7 @@
       productContainer.innerHTML += card;
     }
   });
-</script>
-      `);
-    });
-  </script>
-</div>
 
-<div id="cart">
-  <h2>Your Cart</h2>
-  <ul id="cart-items"></ul>
-
-  <label>Delivery Option</label>
-  <select id="delivery" onchange="updateCart()">
-    <option value="0|Pick-up (Free)">Pick-up (Free)</option>
-    <option value="50|Standard Delivery">Standard Delivery - R50</option>
-    <option value="100|Express Delivery">Express Delivery - R100</option>
-  </select>
-
-  <p><strong>Total:</strong> R<span id="total">0</span></p>
-
-  <form id="order-form">
-    <input type="text" name="name" placeholder="Full Name" required />
-    <input type="text" name="email" placeholder="Your Email" required />
-    <input type="text" name="address" placeholder="Street Address" required />
-    <input type="text" name="city" placeholder="City" required />
-    <input type="text" name="zip" placeholder="Postal Code" required />
-
-    <input type="hidden" name="cart" id="cart-data" />
-    <input type="hidden" name="total" id="cart-total" />
-    <input type="hidden" name="delivery_details" id="delivery-details" />
-
-    <input type="submit" value="Submit Order" />
-    <input type="button" value="Reset Cart" onclick="resetCart()" />
-  </form>
-</div>
-
-<script>
   let cart = [];
 
   function addToCart(product, price) {
@@ -237,148 +277,10 @@
 
   updateCart();
 </script>
-<!-- ✅ Chatbot Widget for Phantom studioZ -->
-<style>
-  #chatWidget {
-    position: fixed;
-    bottom: 80px;
-    right: 20px;
-    width: 300px;
-    height: 400px;
-    background: white;
-    border: 2px solid #444;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    display: none;
-    flex-direction: column;
-    z-index: 9999;
-  }
-
-  #chatHeader {
-    background: #000;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
-  #chatMessages {
-    flex: 1;
-    overflow-y: auto;
-    padding: 10px;
-    font-size: 14px;
-  }
-
-  #chatInput {
-    display: flex;
-    border-top: 1px solid #ccc;
-  }
-
-  #chatInput input {
-    flex: 1;
-    border: none;
-    padding: 10px;
-    outline: none;
-  }
-
-  #chatInput button {
-    background: #000;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-  }
-
-  .chat-msg {
-    margin: 5px 0;
-  }
-
-  .chat-user {
-    color: #1e90ff;
-  }
-
-  .chat-bot {
-    color: #28a745;
-  }
-
-  #openChatBtn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background: #000;
-    color: white;
-    border-radius: 50%;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 9999;
-  }
-</style>
-
-<!-- Chat HTML -->
-<div id="chatWidget">
-  <div id="chatHeader" onclick="toggleChat()">Phantom Bot</div>
-  <div id="chatMessages"></div>
-  <div id="chatInput">
-    <input type="text" id="chatUserInput" placeholder="Ask about products or courses...">
-    <button onclick="sendChatMessage()">➤</button>
-  </div>
-</div>
-
-<button id="openChatBtn" onclick="toggleChat()">💬</button>
-
-<script>
-  function toggleChat() {
-    const widget = document.getElementById("chatWidget");
-    if (widget.style.display === "none" || widget.style.display === "") {
-      widget.style.display = "flex";
-    } else {
-      widget.style.display = "none";
-    }
-  }
-
-  function sendChatMessage() {
-    const input = document.getElementById("chatUserInput");
-    const userMessage = input.value.trim();
-    if (userMessage === "") return;
-
-    addMessage("You", userMessage, "chat-user");
-    input.value = "";
-
-    const botReply = getBotReply(userMessage);
-    setTimeout(() => addMessage("Bot", botReply, "chat-bot"), 400);
-  }
-
-  function addMessage(sender, text, className) {
-    const chatBox = document.getElementById("chatMessages");
-    const msg = document.createElement("div");
-    msg.className = `chat-msg ${className}`;
-    msg.innerHTML = `<strong>${sender}:</strong> ${text}`;
-    chatBox.appendChild(msg);
-    chatBox.scrollTop = chatBox.scrollHeight;
-  }
-
-  function getBotReply(msg) {
-    const input = msg.toLowerCase();
-    if (input.includes("course")) return "We offer makeup, hair, and skincare courses. Check the top of this page.";
-    if (input.includes("product") || input.includes("retail")) return "You can order all products listed above. Tap 'Add to Cart' to begin.";
-    if (input.includes("price")) return "Each product shows a price. Let me know which item you're asking about!";
-    if (input.includes("order") || input.includes("buy")) return "Use the cart below the products to complete your order.";
-    if (input.includes("contact")) return "Contact us via email at thoentity@gmail.com.com or use our contact form.";
-    if (input.includes("pickup") || input.includes("delivery")) return "You can choose between 'Pick-up (Free)' or enter your delivery address.";
-    return "I'm not sure how to respond. Try asking about our products, courses, prices, or how to order.";
-  }
-</script>
-<!-- ✅ End Chatbot Widget -->
 
 </body>
-
-
-
 </html>
+
 
 
 
