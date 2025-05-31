@@ -111,13 +111,7 @@
 
   </div>
 
-  products.forEach(p => {
-    const card = `
-      <div class="product-card">
-        <img src="${p.image}" alt="${p.name}" />
-        <h3>${p.name}</h3>
-        <p>R${p.price}</p>
-        <button onclick="addToCart('${p.name}', ${p.price})">Add to Cart</button>
+  
       </div>
     `;
     if (p.name.toLowerCase().includes("course")) {
