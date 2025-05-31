@@ -116,8 +116,9 @@
 
 <script>
   const products = [
-    { name: "Hair Braiding Styling Course", price: 850, image: "images/shampoo.jpg" },
-    { name: "Make Up Artistry Course", price: 1200, image: "images/nailkit.jpg" },
+    { name: "Hair Braiding Styling Course and Certificate", price: 850, image: "images/shampoo.jpg" },
+    { name: "Make Up Artistry Course, Kit and Certificate", price: 1200, image: "images/nailkit.jpg" },
+    { name: "Wig Making Course, Kit and Certificate", price: 900, image: "images/wig.jpg" },
     { name: "Facial Kit", price: 450, image: "images/facialkit.jpg" },
     { name: "Skin Glow Serum", price: 350, image: "images/serum.jpg" },
     { name: "Manicure Set", price: 299, image: "images/manicure.jpg" },
@@ -125,7 +126,7 @@
     { name: "Lash Lift Kit", price: 500, image: "images/lashlift.jpg" },
     { name: "Acrylic Nail Kit", price: 650, image: "images/acrylic.jpg" },
     { name: "Hair Relaxer", price: 250, image: "images/relaxer.jpg" },
-    { name: "Wig Making Course", price: 900, image: "images/wig.jpg" },
+    { name: "Nail Technology Kit", price: 900, image: "images/wig.jpg" },
     { name: "Scalp Treatment", price: 300, image: "images/scalp.jpg" },
     { name: "Tint Developer", price: 180, image: "images/tint.jpg" },
     { name: "Makeup Brushes", price: 220, image: "images/brushes.jpg" },
@@ -170,9 +171,10 @@
   <label>Delivery Option</label>
   <select id="delivery" onchange="updateCart()">
     <option value="0|Pick-up (Free)">Pick-up (Free)</option>
-    <option value="50|Standard Delivery">Standard Delivery (Pingo box collection) - R50</option>
-    <option value="100|Express Delivery">Delivery to address - R200</option>
+    <option value="50|Standard Delivery">Standard Delivery (Pingo box collection) </option>
+    <option value="100|Express Delivery">Delivery to address</option>
   </select>
+  <Courier fees will be based on location and weight,which will be invoiced prior to delivery>
 
   <p><strong>Total:</strong> R<span id="total">0</span></p>
 
